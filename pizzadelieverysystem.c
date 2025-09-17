@@ -7,6 +7,10 @@ int main(){
     int amount=0;
     float total=0;
 
+    float small=8.00;
+    float medium=16.00;
+    float large=20;
+
     //Ask for size: 
     printf("Enter pizza size: \n1.Small($8)\n2.Medium.($16) \n3.Large.($20)\n");
     scanf("%d",&size);
@@ -50,6 +54,8 @@ int main(){
             break;
     }
 
+    float justThepizza = total;
+
     //show deals
 
     // if(amount==1){
@@ -73,10 +79,10 @@ int main(){
     if(crust==0){
     }
     else if(crust==1){
-        total+=1;
+        total+=crust;
     }
     else if(crust==2){
-        total+=2;
+        total+=crust;
     }
     else{
         printf("Please Enter a valid crust type.");
@@ -89,8 +95,9 @@ int main(){
     char a;
     scanf(" %c",&a);//The space is needed to tell scanf to ignore whitespace
     // printf("\n");
+    float cheese=1.50;
     if(a=='y'||a=='Y'){
-        total+=1.50;
+        total+=cheese;
     }
     else if(a=='n'||a=='N'){
     }
@@ -104,10 +111,12 @@ int main(){
     printf("\nWhat is the time right now (hh.mm, 24hr clock) ?");
     float time=0;
     scanf("%f",&time);
+    float timeDiscount;
     printf("\n");
+
     if(time>11&&time<14){
-        float discount = total*0.10;
-        total+=discount;
+        timeDiscount = total*0.10;
+        total+=timeDiscount;
     }
     else{
         printf("\nNo discount available at this time.");
@@ -119,9 +128,9 @@ int main(){
     printf("\nAre you a student(y/n)? \n");
     char b='z';
     scanf(" %c",&a);//The space is needed to tell scanf to ignore whitespace
-    printf("\n");
+    float studentDiscount =-2.00;
     if(b=='y'||b=='Y'){
-        total-=2;
+        total+=studentDiscount;
     }
     else if(b=='n'||b=='N'){
     }
@@ -143,13 +152,15 @@ int main(){
     int choice=0;
     scanf("%d",&choice);
     printf("\n");
+    float delivery=3;
     if(choice==1){
-        total+=3;
+        total+=delivery;
     }else{
 
     }
 
 
+    printf("%f Pizzas\n %f Crust.\n %f Cheese.\n%f Time Discount.\n%f studentDiscount.\n%f Delivery.",justThepizza,crust,cheese,timeDiscount,studentDiscount,delivery);
     printf("Your Grand total is %f",total);
     return 0;
 }
